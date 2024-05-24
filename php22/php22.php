@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambodia City</title>
-    <link rel="stylesheet" href="city.css">
+    <link rel="stylesheet" href="php22.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="../jquery.min.js"></script>
 
@@ -36,13 +36,39 @@
             <label for="">OD</label>
             <input type="text" name="txt-od" id="txt-od" class="frm-control" value="<?php echo $id; ?>">
             <label for="">Photo</label>
-            <input type="file" name="txt-file" id="txt-file" class="frm-control">
+            <div class="img-box">
+                <input type="file" name="txt-file" id="txt-file">
+            </div>
             <div class="btnSave"><i class="fa-solid fa-floppy-disk"></i> Save</div>
         </form>
     </div>
 </body>
 <script>
     $(document).ready(function(){
+        // upload image
+        $('#txt-file').change(function(){
+            var ethis = $(this);
+            var frm = ethis.closest('form.upl');
+            var frm_data = new FormData(frm[0]);
+            $.ajax({
+                url: 'upd-city-img.php', // Update the URL to point to the save script
+                type: 'POST',
+                data: frm_data,
+                contentType: false,
+                processData: false,
+                cache: false,
+                // dataType: 'json',
+                beforeSend:function(){
+                   
+                },
+                success:function(data){
+                    // alert(data['img_name']);
+                    $(".img-box").css({
+                        'background-image': 'url(../img/'+data['img_name']+')',
+                    });
+                },
+            });
+        });
         $('.btnSave').click(function(){
             var ethis = $(this);
             var Parent = ethis.parents('.frm');
