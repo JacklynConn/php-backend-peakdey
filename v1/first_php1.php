@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set("Asia/Phnom_Penh");
+    date_default_timezone_set("Asia/Phnom_Penh");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@ date_default_timezone_set("Asia/Phnom_Penh");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>first PHP</title>
     <link rel="stylesheet" href="v1.css">
 </head>
 

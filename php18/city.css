@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.frm{
+    width: 600px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px 0 #ccc;
+    overflow: hidden;
+    margin: 50px auto;
+}
+.tl{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+}
+label{
+    width: 100%;
+    float: left;
+}
+.frm-control{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.btnSave{
+    float: right;
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.btnSave:hover{
+    background-color: blue;
+}

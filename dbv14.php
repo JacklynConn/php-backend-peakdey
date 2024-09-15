@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("Asia/Phnom_Penh");
-$cn = new mysqli("localhost", "root", "", "php_backend_db");
+$cn = new mysqli("localhost", "root", "", "testdb");
 $autoId = 1;
 $status = "";
 
@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
         $result = $cn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-            $pay_date = date("d-M-Y H:i:s A", strtotime($row['date_payment']));
+                $pay_date = date("d-M-Y H:i:s A", strtotime($row['date_payment']));
 
         ?>
                 <tr>

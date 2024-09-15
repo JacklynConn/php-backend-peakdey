@@ -8,12 +8,12 @@
 </head>
 
 <body>
-    <h1>Open Connection</h1>
+        <h1>Open Connection</h1>
     <?php
-        $cn = new mysqli("localhost", "root", "", "php_backend_db");
+        $cn = new mysqli("localhost", "root", "", "testdb");
     ?>
-    <h1>Insert Data</h1>
-    <?php 
+        <h1>Insert Data</h1>
+    <?php
         $sql = "INSERT INTO tbl_test VALUES(1, 'HTML', 10.5)";
         $cn->query($sql);
     ?>

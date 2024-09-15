@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("Asia/Phnom_Penh");
-$cn = new mysqli("localhost", "root", "", "php_backend_db");
+$cn = new mysqli("localhost", "root", "", "testdb");
 $autoId = 1;
 $editId = "";
 $name2 = "";

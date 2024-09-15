@@ -10,7 +10,7 @@
 <body>
     <h1>Open Connection</h1>
     <?php
-        $cn = new mysqli("localhost", "root", "", "php_backend_db");
+        $cn = new mysqli("localhost", "root", "", "testdb");
     ?>
     <h1>Insert Data</h1>
     <?php 
@@ -25,7 +25,7 @@
             <th>Price</th>
         </tr>
         <?php
-            $sql = "SELECT id, name, price FROM tbl_test where id = 1";
+            $sql = "SELECT id, name, price FROM tbl_test where id = 1"; // select specific data
             $sql = "SELECT * FROM tbl_test";
             $rs = $cn->query($sql);
             while($row = $rs->fetch_array()){

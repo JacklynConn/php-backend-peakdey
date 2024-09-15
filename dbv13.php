@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("Asia/Phnom_Penh");
-$cn = new mysqli("localhost", "root", "", "php_backend_db");
+$cn = new mysqli("localhost", "root", "", "testdb");
 $autoId = 1;
 
 if (isset($_POST['btnSubmit'])) {
@@ -14,13 +14,14 @@ if (isset($_POST['btnSubmit'])) {
     $cn->query($sql);
 }
 
-// get autq
-$sql = "SELECT MAX(id) as max_id FROM tbl_test2"; // use the same below
-// $sql = "SELECT id FROM tbl_test2 ORDER BY id DESC";
+// get auto id
+// $sql = "SELECT MAX(id) as max_id FROM tbl_test2"; // use the same below
+$sql = "SELECT id FROM tbl_test2 ORDER BY id DESC";
 $result = $cn->query($sql);
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $autoId = $row['max_id'] + 1;
+$num = $result->num_rows;
+if ($num > 0) {
+    $row = $result->fetch_array();
+    $autoId = $row['id'] + 1;
 }
 ?>
 

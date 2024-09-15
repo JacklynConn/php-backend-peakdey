@@ -10,7 +10,7 @@
 <body>
     <h1>Open Connection</h1>
     <?php
-        $cn = new mysqli("localhost", "root", "", "php_backend_db");
+        $cn = new mysqli("localhost", "root", "", "testdb");
     ?>
     <h1>Insert Data</h1>
     <?php 

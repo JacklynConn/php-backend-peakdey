@@ -2,7 +2,7 @@
 <?php
     date_default_timezone_set("Asia/Phnom_Penh");
     echo "<h1>Open Connection</h1>";
-    $cn = new mysqli("localhost", "root", "", "php_backend_db");
+    $cn = new mysqli("localhost", "root", "", "testdb");
     // $sql = "INSERT INTO tbl_test2 VALUES('', '10-10-10', 'Rean Web', 100)";
 
     $datePost = date("Y-m-d H:i:s A");

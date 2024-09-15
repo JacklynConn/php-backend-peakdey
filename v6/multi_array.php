@@ -27,9 +27,9 @@
 
     foreach ($items as $val) {
     ?>
-    <div class="box2">
-        <?php echo $val["title"] . " is " . $val["color"] . " and costs " . $val["price"] . "."; ?>
-    </div>
+        <div class="box2">
+            <?php echo $val["title"] . " is " . $val["color"] . " and costs " . $val["price"] . "."; ?>
+        </div>
     <?php
     }
     ?>
@@ -42,7 +42,7 @@
     $imgs = explode(",", $imgList);
     foreach ($imgs as $img) {
     ?>
-    <img src="img/<?php echo $img; ?>" alt="">
+        <img src="img/<?php echo $img; ?>" alt="">
     <?php
     }
     ?>

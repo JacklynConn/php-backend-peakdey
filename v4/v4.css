@@ -1,0 +1,19 @@
+.box1{
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+}
+.box2{
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    float: left;
+    margin: 10px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table tr th, table tr td{
+    border: 1px solid black;
+}

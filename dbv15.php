@@ -1,7 +1,8 @@
 <?php
 date_default_timezone_set("Asia/Phnom_Penh");
-$cn = new mysqli("localhost", "root", "", "php_backend_db");
+$cn = new mysqli("localhost", "root", "", "testdb");
 $autoId = 1;
+$status = "";
 $editId = "";
 
 if(isset($_GET['id'])){
@@ -9,7 +10,6 @@ if(isset($_GET['id'])){
 }
 
 echo $editId;
-$status = "";
 
 if (isset($_POST['btnSubmit'])) {
     echo "<h1>Open Connection</h1>";
