@@ -16,7 +16,7 @@ if ($rs->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambodia City</title>
-    <link rel="stylesheet" href="city23.css">
+    <link rel="stylesheet" href="city.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../jquery.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
@@ -32,12 +32,22 @@ if ($rs->num_rows > 0) {
             <input type="hidden" name="txt-edit-id" id="txt-edit-id" value="0">
             <label for="">ID</label>
             <input type="text" name="txt-id" id="txt-id" class="frm-control" value="<?php echo $id ?>" readonly>
+            <label for="">Language</label>
+            <select name="txt-lang" id="txt-lang" class="frm-control">
+                <option value="1">English</option>
+                <option value="2">Khmer</option>
+            </select>
             <label for="">City Name</label>
             <input type="text" name="txt-name" id="txt-name" class="frm-control">
             <label for="">Description</label>
             <textarea name="txt-des" id="txt-des" class="frm-control"></textarea>
             <label for="">OD</label>
             <input type="text" name="txt-od" id="txt-od" class="frm-control" value="<?php echo $id; ?>">
+            <label for="">Status (0 = Disable, 1 = Enable)</label>
+            <select name="txt-status" id="txt-status" class="frm-control">
+                <option value="1">1</option>
+                <option value="0">0</option>
+            </select>
             <label for="">Photo</label>
             <div class="img-box">
                 <input type="file" name="txt-file" id="txt-file">
@@ -52,6 +62,8 @@ if ($rs->num_rows > 0) {
             <th width="200">City Name</th>
             <th>Description</th>
             <th width="100">OD</th>
+            <th width="100">Status</th>
+            <th width="100">Language</th>
             <th width="200">Photo</th>
             <th width="200">Action</th>
         </tr>
@@ -66,6 +78,8 @@ if ($rs->num_rows > 0) {
                 <td><?php echo $row['city_name'] ?></td>
                 <td><?php echo $row['city_des'] ?></td>
                 <td><?php echo $row['od'] ?></td>
+                <td><?php echo $row['status'] ?></td>
+                <td><?php echo $row['lang'] ?></td>
                 <td><img src="../img-box/<?php echo $row['img'] ?>" alt="<?php echo $row['img'] ?>"></td>
                 <td>
                     <input type="button" value="Edit" class="btnEdit">
@@ -107,7 +121,7 @@ if ($rs->num_rows > 0) {
             var frm = ethis.closest('form.upl');
             var frm_data = new FormData(frm[0]);
             $.ajax({
-                url: 'upd-city-img23.php', // Update the URL to point to the save script
+                url: 'upd-city-img.php', // Update the URL to point to the save script
                 type: 'POST',
                 data: frm_data,
                 contentType: false,
@@ -136,6 +150,8 @@ if ($rs->num_rows > 0) {
             var name = Parent.find('#txt-name');
             var des = Parent.find('#txt-des');
             var od = Parent.find('#txt-od');
+            var status = Parent.find('#txt-status');
+            var lang = Parent.find('#txt-lang');
             var photo = Parent.find('#txt-photo');
             var imgBox = Parent.find('.img-box');
             var file = Parent.find('#txt-file');
@@ -155,7 +171,7 @@ if ($rs->num_rows > 0) {
             var frm = ethis.closest('form.upl');
             var frm_data = new FormData(frm[0]);
             $.ajax({
-                url: 'save_city23.php', // Update the URL to point to the save script
+                url: 'save_city.php', // Update the URL to point to the save script
                 type: 'POST',
                 data: frm_data,
                 contentType: false,
@@ -176,6 +192,8 @@ if ($rs->num_rows > 0) {
                         $('#tbData').find('tr:eq(' + trInd + ') td:eq(1)').text(name.val());
                         $('#tbData').find('tr:eq(' + trInd + ') td:eq(2)').text(des.val());
                         $('#tbData').find('tr:eq(' + trInd + ') td:eq(3)').text(od.val());
+                        $('#tbData').find('tr:eq(' + trInd + ') td:eq(4)').text(status.val());
+                        $('#tbData').find('tr:eq(' + trInd + ') td:eq(5)').text(lang.val());
                         $('#tbData').find('tr:eq(' + trInd + ') td:eq(4) img').attr('src', '../img-box/' + photo.val());
                         $('#tbData').find('tr:eq(' + trInd + ') td:eq(4) img').attr('alt', photo.val());
                         // message
@@ -187,6 +205,8 @@ if ($rs->num_rows > 0) {
                             <td>${name.val()}</td>
                             <td>${des.val()}</td>
                             <td>${data['last_id']}</td>
+                            td>${status.val()}</td>
+                            <td>${lang.val()}</td>
                             <td><img src="../img-box/${photo.val()}" alt="${photo.val()}"></td>
                             <td>
                                 <input type="button" value="Edit" class="btnEdit">
@@ -223,7 +243,10 @@ if ($rs->num_rows > 0) {
             var name = tr.find('td').eq(1).text().trim();
             var des = tr.find('td').eq(2).text().trim();
             var od = tr.find('td').eq(3).text().trim();
-            var img = tr.find('td').eq(4).find('img').attr('alt');
+            var status = tr.find('td').eq(4).text().trim();
+            var lang = tr.find('td').eq(5).text().trim();
+            var img = tr.find('td').eq(6).find('img').attr('alt');
+            
 
             $('#txt-edit-id').val(id);
 
@@ -235,7 +258,8 @@ if ($rs->num_rows > 0) {
             $('.img-box').css({
                 'background-image': 'url(../img-box/' + img + ')',
             });
-
+            $('#txt-status').val(status);
+            $('#txt-lang').val(lang);
         });
 
         // delete city data

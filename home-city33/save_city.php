@@ -10,6 +10,8 @@
     $des = str_replace("\n", "<br>", $des); // replace new line with <br>
     $img = $_POST['txt-photo'];
     $od = $_POST['txt-od'];
+    $status = $_POST['txt-status'];
+    $lang = $_POST['txt-lang'];
     $edit_id = $_POST['txt-edit-id'];
 
     // check duplicate city name
@@ -20,13 +22,13 @@
     $msg['edit'] = false;
     if($num == 0){
         if($edit_id == 0){ 
-        $sql = "INSERT INTO tbl_city VALUES (null, '$name', '$des', '$img', '$od')";
+        $sql = "INSERT INTO tbl_city VALUES (null, '$name', '$des','$lang', '$img', '$od', $status)";
         $cn->query($sql);
         $msg['last_id'] = $cn -> insert_id;
         }else{
-            $sql = "UPDATE tbl_city SET city_name = '$name', city_des = '$des', img = '$img', od = '$od' WHERE id = $edit_id";
+            $sql = "UPDATE tbl_city SET city_name = '$name', city_des = '$des', img = '$img', od = '$od', status=$status, lang=$lang  WHERE id = $edit_id";
             $cn->query($sql);
-            $msg['edit'] = true;
+            $msg['edit'] = true; 
         }
         $msg['dpl'] = false;
 
