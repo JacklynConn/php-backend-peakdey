@@ -69,29 +69,34 @@ if ($rs->num_rows > 0) {
             <input type="hidden" name="txt-photo" id="txt-photo">
             <div class="btnSave"><i class="fa-solid fa-floppy-disk"></i> Save</div>
     </div>
-    <!-- <table id="tbData">
+    <table id="tbData">
         <tr class="trHead">
             <th width="100">ID</th>
             <th width="200">City Name</th>
+            <th width="200">Title</th>
             <th>Description</th>
-            <th width="100">Language</th>
-            <th width="100">OD</th>
-            <th width="100">Status</th>
+            <th width="50">Language</th>
+            <th width="50">Status</th>
             <th width="200">Photo</th>
             <th width="200">Action</th>
         </tr>
 
         <?php
-        $sql = "SELECT * FROM tbl_city ORDER BY id DESC";
+        // $sql = "SELECT * FROM tbl_city_item ORDER BY id DESC";
+        // $sql = "SELECT tbl_city_item.*, tbl_city.city_name FROM tbl_city_item INNER JOIN tbl_city ON tbl_city_item.city_id = tbl_city.id ORDER BY id DESC"; // get all
+        $sql = "SELECT tbl_city_item.id, 
+                tbl_city.city_name, tbl_city_item.title, tbl_city_item.des, 
+                tbl_city_item.lang, tbl_city_item.status, tbl_city_item.img 
+                FROM tbl_city_item INNER JOIN tbl_city ON tbl_city_item.city_id =  tbl_city.id ORDER BY id DESC";
         $rs = $cn->query($sql);
         while ($row = $rs->fetch_assoc()) {
         ?>
             <tr>
                 <td><?php echo $row['id'] ?></td>
                 <td><?php echo $row['city_name'] ?></td>
-                <td><?php echo $row['city_des'] ?></td>
+                <td><?php echo $row['title'] ?></td>
+                <td><?php echo $row['des'] ?></td>
                 <td><?php echo $row['lang'] ?></td>
-                <td><?php echo $row['od'] ?></td>
                 <td><?php echo $row['status'] ?></td>
                 <td><img src="../img-box/<?php echo $row['img'] ?>" alt="<?php echo $row['img'] ?>"></td>
                 <td>
@@ -102,7 +107,10 @@ if ($rs->num_rows > 0) {
         <?php
         }
         ?>
-    </table> -->
+    </table>
+    <div style="height: 300px;">
+
+    </div>
 </body>
 <script>
     $(document).ready(function() {
