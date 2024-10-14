@@ -224,14 +224,14 @@ if ($rs->num_rows > 0) {
             var id = tr.find('td:eq(0)').text();
             // get city name
             var name = tr.find('td:eq(2)').text();
-            var city_id = tr.find('td:eq(1)').data('id');
+            var city = tr.find('td:eq(1)').data('id');
             var des = tr.find('td:eq(3)').text();
             var lang = tr.find('td:eq(4)').text();
             var status = tr.find('td:eq(5)').text();
             var img = tr.find('td:eq(6) img').attr('alt');
             $('#txt-edit-id').val(id);
             $('#txt-id').val(id);
-            $('#txt-city').val(city_id);
+            $('#txt-city').val(city);
             $('#txt-city-item-name').val(name);
             $('#txt-des').val(des);
             $('#txt-lang').val(lang);
