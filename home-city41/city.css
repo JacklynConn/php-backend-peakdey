@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.popup{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.popup .msg-box{
+  width: 300px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px 0 #ccc;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.msg-box h1{
+  color: red;
+  font-size: 17px;
+
+}
+.msg-box input{
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.msg-box input:hover.btnYes{
+  background-color: rgb(255, 0, 0);
+}
+.msg-box input:hover.btnNo{
+  background-color: rgb(0, 255, 0);
+}
+.frm {
+  width: 600px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px 0 #ccc;
+  overflow: hidden;
+  margin: 50px auto;
+}
+.tl {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+}
+label {
+  width: 100%;
+  float: left;
+}
+.frm-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.btnSave {
+  float: right;
+  background-color: rgb(61, 74, 255);
+  color: white;
+  font-size: 12px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.btnSave:hover {
+  background-color: blue;
+}
+.img-box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  float: left;
+  background-image: url("../img/profile-img.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.img-box input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  float: left;
+  cursor: pointer;
+}
+.loading-img {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../img/loading.gif");
+  background-size: 30px 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+table {
+  width: 90%;
+  margin: 50px auto;
+  border-collapse: collapse;
+  box-shadow: 1px 1px 8px 0 #ccc;
+  border-radius: 5px;
+}
+table tr th {
+  background-color: whitesmoke;
+  border: 1px solid #eee;
+  padding: 10px;
+  color: blue;
+  font-size: 18px;
+}
+table tr td {
+  border: 1px solid #eee;
+  padding: 5px;
+}
+table tr td img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* 30 Home City */
+.bar1{
+  background-color: #333;
+  box-shadow: 1px 1px 8px 0 #ccc;
+}
+.menu-bar ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-bar ul li{
+  float: left;
+}
+.menu-bar ul li a{
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 15px 20px;
+}
+.menu-bar ul li a:hover{
+  background-color: #555;
+}
+
+/* btn-edit */
+.btn-edit{
+  background-color: rgb(61, 74, 255);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.btn-edit:hover{
+  background-color: blue;
+}
+
+/* btn-delete */
+.btn-delete{
+  background-color: rgb(230, 122, 122);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.btn-delete:hover{
+  background-color: red;
+}
