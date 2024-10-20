@@ -1,0 +1,86 @@
+ul, h1, h2, p{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/* Menu */
+.menu{
+    background-color: cornflowerblue;
+}
+.menu ul li{
+    float: left;
+}
+.menu ul li a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 25px 20px;
+    font-weight: bold;
+}
+.menu ul li a.active{
+    background-color: orange;
+}
+.menu ul li a:hover{
+    background-color: #333;
+}
+
+/* Content */
+.title1-box{
+    text-align: center;
+}
+.title1-box h1{
+    font-size: 30px;
+    color: #333;
+}
+.title1-box p{
+    font-size: 20px;
+    color: #666;
+}
+.item-box{
+    height: 320px;
+    background-color: white;
+    padding: 1px;
+}
+.box{
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+.item-box .box .img-box{
+    width: 100%;
+    height: 55%;
+    background-color: #ccc;
+}
+.item-box .box .img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item-box .box .txt-box{
+    width: 100%;
+    height: 45%;
+    background-color: #ddd;
+    position: relative;
+} 
+.item-box .box .txt-box h1{
+    font-size: 20px;
+    color: #333;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.item-box .box .txt-box p{
+    font-size: 16px;
+    color: #666;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.item-box .box .txt-box a{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: cornflowerblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
